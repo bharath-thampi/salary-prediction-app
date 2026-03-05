@@ -1,23 +1,22 @@
+from flask import Flask, render_template, request
+import pickle
 import numpy as np
-from flask import Flask, request, render_template
-from pickle import load
+import os
 
-#initialization of Flask
 app = Flask(__name__)
 
-@app.route('/')
+model = pickle.load(open("salary.pkl", "rb"))
+
+@app.route("/")
 def home():
-    return render_template('index.html')
+    return render_template("index.html")
 
-@app.route('/predict',methods=['POST'])
+@app.route("/predict", methods=["POST"])
 def predict():
-    int_features = [int(x) for x in request.form.values()]
-    final_features = [np.array(int_features)]
-    
-    loaded_model = load(open('salary.pkl', 'rb'))
-    prediction = loaded_model.predict(final_features)
-
-    return render_template('index.html', prediction_text="$ {}".format(prediction))
+    experience = float(request.form["experience"])
+    prediction = model.predict([[experience]])
+    return render_template("index.html", prediction_text=f"Salary: {prediction[0]}")
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
