@@ -23,7 +23,7 @@ salary-predictor/
 ## How to Run
 
 1. Clone the repository
-git clone https://github.com/yourusername/salary-predictor.git
+git clone https://github.com/bharath-thampi/salary-prediction-app.git
 
 2. Install dependencies
 pip install -r requirements.txt
@@ -32,7 +32,7 @@ pip install -r requirements.txt
 python app.py
 
 4. Open browser
-http://127.0.0.1:5000/
+[http://127.0.0.1:5000/](https://salary-prediction-app-1-uwd5.onrender.com/)
 
 ## Deployment
 The project is deployed using Render.
