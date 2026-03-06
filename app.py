@@ -17,7 +17,7 @@ def predict():
     test = float(request.form["test_score"])
     interview = float(request.form["interview_score"])
     prediction = model.predict([[experience, test, interview]])
-    return render_template("index.html", prediction_text=f"Salary: {prediction[0]}")
+    return render_template("index.html", prediction_text=f"Salary: ${prediction[0]:.2f}")
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
