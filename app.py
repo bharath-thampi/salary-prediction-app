@@ -14,7 +14,9 @@ def home():
 @app.route("/predict", methods=["POST"])
 def predict():
     experience = float(request.form["experience"])
-    prediction = model.predict([[experience]])
+    test = float(request.form["test_score"])
+    interview = float(request.form["interview_score"])
+    prediction = model.predict([[experience, test, interview]])
     return render_template("index.html", prediction_text=f"Salary: {prediction[0]}")
 
 if __name__ == "__main__":
