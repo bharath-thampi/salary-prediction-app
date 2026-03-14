@@ -32,7 +32,7 @@ pip install -r requirements.txt
 python app.py
 
 4. Open browser
-[http://127.0.0.1:5000/](https://salary-prediction-app-1-uwd5.onrender.com/)
+   (https://salary-prediction-app-2.onrender.com)
 
 ## Deployment
 The project is deployed using Render.
